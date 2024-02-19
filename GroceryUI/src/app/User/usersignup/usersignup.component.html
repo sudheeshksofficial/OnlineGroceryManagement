@@ -1,0 +1,67 @@
+<div class="formAdd">
+    <form autocomplete="on" #myForm="ngForm" (ngSubmit)="myForm.form.valid && submit(myForm)" >
+      <div class="container">
+          <!-- <div class="row">
+              <div class="col-md-3"> -->
+      <div id="stl">
+        
+          <h3>Grocery management portal</h3>
+            <h1>Customer Portal</h1>
+                <input type="hidden" name="id" [value]="userService.userData.userid">
+
+                <div class="col-md-12">
+                  <label for="name" class="float-left">UserName : </label> <br><br>
+                  <input type="text" name="name" class="form-control" placeholder="Enter name" #name="ngModel" [(ngModel)]="userService.userData.username" required>
+              </div>    
+<!-- 
+              <div class="col-md-8">
+                <label for="name" class="float-left">Designation : </label>
+                <input type="text" name="designation" class="form-control" placeholder="Enter designation" #designation="ngModel" [(ngModel)]="userService.userData.design" required>
+            </div>        -->
+
+                <div class="col-md-12">
+                  <label for="mailId" class="float-left">MailId</label>
+                  <div *ngIf="mailId.untouched" class="float-right">
+                      <p class="text-danger">Required</p>
+                  </div>
+                  <div  *ngIf="mailId.invalid && (mailId.touched || mailId.dirty)" class="float-right">
+                    <p class="text-danger">please enter proper mailid</p>
+                  </div>
+                   
+                  <input type="text" name="mailId" class="form-control" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" placeholder="Enter mail id" #mailId="ngModel" [(ngModel)]="userService.userData.usermail" required>
+              </div>
+
+
+
+
+
+              
+              <div class="col-md-12">
+                <label for="name" class="float-left">password</label>
+                <div *ngIf="password.invalid && (password.touched || password.dirty)" class="float-right">
+                    <p class="text-danger">Required</p>
+                </div> <br><br>
+                <input type="text" name="password" class="form-control" placeholder="Enter password" #password="ngModel" [(ngModel)]="userService.userData.password" minlength="8" required>
+            </div>
+           <br>
+              
+              <div class="col-md-12">
+                  <button type="submit" [disabled]="password.value===0" class="btn btn-success btn-block">Sign up</button>
+                  &nbsp;&nbsp;
+                    <button type="reset" class="btn btn-danger btn-block">Cancel</button>
+
+              </div>
+              <br>
+                <br>
+             
+              <div class="col-md-12"> <p>Click login if you already have an account</p>
+              <button (click)="LoginUser()" class="btn btn-primary" id = "logs">login</button>
+            </div>
+            <div class="col-md-12"> <p>For admin portal click here</p>
+              <button (click)="Admins()" class="btn btn-primary" id = "logs">Admin</button>
+            </div>
+          </div>
+     </div>
+   </form>
+</div>
+

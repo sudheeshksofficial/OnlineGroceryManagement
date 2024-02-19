@@ -1,0 +1,15 @@
+<app-user-navbar></app-user-navbar>
+<div class="container">
+  <div class="row">
+    <ng-container *ngFor="let item of prod.listStock">
+      <div class="card col-md-3">
+          <img src={{item.image}} alt="">
+          <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis ;max-width: 100ch;">{{item.title}}</h5>
+          <p><strong>Price : </strong>Rs.{{item.price}}</p>
+          <p>{{item.stars}}<span><mat-icon class="stars">star</mat-icon></span></p>
+          <button class="btn btn-primary" (click)= "addtoCart()" >Add to cart</button>
+      </div>
+    </ng-container>
+  </div>
+</div>
+  

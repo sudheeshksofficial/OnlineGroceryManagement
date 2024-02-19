@@ -1,0 +1,67 @@
+
+<input #checkbox1 type="checkbox" name="toggle" id="toggle">
+<label for="toggle"></label>
+<div class="container">
+</div>
+<div class="formAdd">
+    <form autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && submit(myForm)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="hidden" name="id" [value]="stkservice.purchaseData.id">
+ 
+                    <label for="title" class="float-left">Title</label>
+                    <div *ngIf="title.invalid && (title.touched || title.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="title" class="form-control" placeholder="Enter title" #title="ngModel" [(ngModel)]="stkservice.purchaseData.title" required>
+                </div>
+ <!-- stkservice.stockData.  -->
+                <div class="col-md-3">
+                    <label for="name" class="float-left">category</label>
+                    <div *ngIf="category.invalid && (category.touched || category.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="category" class="form-control" placeholder="Enter  category" #category="ngModel" [(ngModel)]="stkservice.purchaseData.category" required>
+                </div>
+ 
+                <div class="col-md-3">
+                    <label for="image" class="float-left">image</label>
+                    <div *ngIf="image.invalid && (image.touched || image.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="image" class="form-control" placeholder="Enter image" #image="ngModel" [(ngModel)]="stkservice.purchaseData.image" required>
+                </div>
+ 
+                <div class="col-md-3">
+                    <label for="price" class="float-left">price</label>
+                    <div *ngIf="price.invalid && (price.touched || price.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="number" name="price" class="form-control" placeholder="Enter price" #price="ngModel" [(ngModel)]="stkservice.purchaseData.price" required>
+                </div>
+                
+                <div class="col-md-3">
+                  <label for="stars" class="float-left">stars</label>
+                  <div *ngIf="stars.invalid && (stars.touched || stars.dirty)" class="float-right">
+                      <p class="text-danger">Required</p>
+                  </div>
+                  <input type="number" name="stars" class="form-control" placeholder="Enter stars" #stars="ngModel" [(ngModel)]="stkservice.purchaseData.stars" required>
+              </div>
+            </div>
+ 
+           
+            <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success btn-block">Save</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="reset" class="btn btn-danger btn-block">Cancel</button>
+                </div>
+            </div>
+ 
+ 
+        </div>
+    </form>
+ </div>

@@ -1,0 +1,45 @@
+<app-user-navbar></app-user-navbar>
+
+<div class="container">
+  <app-purchase-edit></app-purchase-edit>
+  </div>
+  <table class="table table-hover">
+      <thead class="thead-dark">
+       <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Category</th>
+        <!-- <th>Image</th> -->
+        <th>Stars</th>
+        <!-- <th>Age</th> -->
+        <th>Actions</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stk of stocksService.listPurchase"> 
+          <td>{{stk.title}}</td>
+          <td>{{stk.price}}</td>
+          <td>{{stk.category}}</td>
+          <td>{{stk.stars}}</td>
+          <td>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Actions
+                </button>
+                <div class="dropdown-menu"    aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" (click)="populateEmployee(stk)">Edit</a>
+                  <a class="dropdown-item" (click)="delete(stk.id)">Delete</a>
+                  
+                </div>
+              </div>
+              <!--both are correct-->
+              <!-- <div>
+                <button class="btn btn-danger"><a href="#" (click)="populateEmployee(emp)">Edit</a></button>
+                <button class="btn btn-success"><a href="#" (click)="delete(emp.id)">Delete</a></button>
+              </div> -->
+          </td>
+        </tr>
+      </tbody>
+  </table>
+  
+

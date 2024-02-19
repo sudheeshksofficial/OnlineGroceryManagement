@@ -1,0 +1,40 @@
+<div class="container">
+<form class="border p-3 rounded-3" [formGroup] = "loginForm" (ngSubmit)="loginSubmitted()">
+  <div class="row g-0">
+    <div class="col text-center p-2 mb-3 bg-light">
+      <span class="fs-3">Login</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-3">
+      <label for="usermail" class="form-label">Email address</label>
+      <input type="usermail" class="form-control" id="usermail" formControlName="usermail">
+      <div class="form-text text-danger" *ngIf="usermail.errors?.['required']&&(usermail.dirty || usermail.touched)">
+          Email is Required
+      </div>
+      <div class="form-text text-danger" *ngIf="usermail.errors?.['email']&&(usermail.dirty || usermail.touched)">
+        Email is Invalid
+    </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-3">
+      <label for="password" class="form-label">password</label>
+      <input type="password" class="form-control" id="password" formControlName="password">
+    </div>
+    <div class="form-text text-danger" *ngIf="password.errors?.['required']&&(password.dirty || password.touched)">
+      Password is Required
+  </div>
+  <div class="form-text text-danger" *ngIf="password.errors?.['minlength'] || password.errors?.['maxlength'] &&(password.dirty || password.touched)">
+    password should between 6 to 15 characters
+</div>
+  </div>
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="d-grid">
+        <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
